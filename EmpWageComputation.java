@@ -5,27 +5,34 @@ public class EmpWageComputation {
            //CONSTANTS
            // isPartTime = 1
            // isFullTime = 2
+	   int EMP_RATE_PER_HR = 20;
+	   int NUM_WORKING_DAYS = 20;
 
             //Variables
-            int empRatePerHr = 20;
             int empHrs = 0;
             int salary = 0;
-            double randomCheck = Math.floor(Math.random() * 10) % 3;
-           switch ( (int)randomCheck ) {
+            int totalSalary = 0;
 
-            case 2 :
-               empHrs = 8;
-               break;
 
-            case 1 :
-               empHrs = 4;
-               break;
+       for (int day=1; day<=NUM_WORKING_DAYS; day++){
+      double randomCheck = Math.floor(Math.random() * 10) % 3;
 
-            default :
-               empHrs = 0;
-       }
-            salary = empHrs*empRatePerHr;
-            System.out.println(salary);
+         switch ( (int)randomCheck ) {
+
+               case 2 :
+                empHrs = 8;
+            break;
+
+               case 1 :
+                empHrs = 4;
+            break;
+
+               default :
+                empHrs = 0;
+         }
+         salary = empHrs*EMP_RATE_PER_HR;
+         totalSalary=totalSalary+salary;
+      }
+      System.out.println(totalSalary);
    }
-
 }
