@@ -3,25 +3,29 @@ public class EmpWageComputation {
         public static void main(String[] args) {
 
            //CONSTANTS
-            int isPartTime = 1;
-            int isFullTime = 2;
+           // isPartTime = 1
+           // isFullTime = 2
 
             //Variables
             int empRatePerHr = 20;
             int empHrs = 0;
             int salary = 0;
             double randomCheck = Math.floor(Math.random() * 10) % 3;
+           switch ( (int)randomCheck ) {
 
-            if (randomCheck == isFullTime)
+            case 2 :
                empHrs = 8;
+               break;
 
-            else if (randomCheck == isPartTime)
+            case 1 :
                empHrs = 4;
+               break;
 
-            else
+            default :
                empHrs = 0;
-
+       }
             salary = empHrs*empRatePerHr;
             System.out.println(salary);
    }
+
 }
