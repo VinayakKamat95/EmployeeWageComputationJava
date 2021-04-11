@@ -1,41 +1,44 @@
+
 public class EmpWageComputation {
+	// Constants
+	public static final int IS_PART_TIME = 1;
+	public static final int IS_FULL_TIME = 2;
+	public static final int EMP_RATE_PER_HOUR = 20;
+	public static final int NUM_OF_WORKING_DAYS = 20;
+	public static final int MAX_HRS_IN_MONTH = 50;
 
-        public static void main(String[] args) {
-
-           //CONSTANTS
-           // isPartTime = 1
-           // isFullTime = 2
-      int EMP_RATE_PER_HR = 20;
-      int MAX_HRS_IN_MONTH = 50;
-      int NUM_WORKING_DAYS = 20;
-
+	public static int computeEmpWage() {
        //Variables
-            int totalEmpHrs = 0;
-            int totalWorkingDays = 0;
-            int totalSalary = 0;
-            int workHrs = 0;
+		int empHrs = 0;
+		int totalEmpHrs = 0;
+		int totalWorkingDays = 0;
 
-       while (totalEmpHrs < MAX_HRS_IN_MONTH && totalWorkingDays < NUM_WORKING_DAYS){
-        totalWorkingDays+=1;
-   double randomCheck = Math.floor(Math.random() * 10) % 3;
+		//Computation
+		while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS){
+			totalWorkingDays ++;
 
-         switch ( (int)randomCheck ) {
-
-               case 2 :
-                workHrs+=8;
-            break;
-
-               case 1 :
-                workHrs+=4;
-            break;
-
-               default :
-                workHrs+=0;
-         }
-         totalEmpHrs=totalEmpHrs+workHrs;
-
-      }
-      totalSalary=EMP_RATE_PER_HR*totalEmpHrs;
-      System.out.println(totalSalary);
+			int empCheck = (int)Math.floor(Math.random() * 10) % 3;
+			switch(empCheck) {
+			case IS_FULL_TIME:
+				empHrs = 8;
+				break;
+			case IS_PART_TIME:
+				empHrs = 4;
+				break;
+			default:
+				empHrs = 0;
+				break;
+			}
+			totalEmpHrs += empHrs;
+			System.out.println("Days#: " + totalWorkingDays + " Emp Hr: " + empHrs);
+		}
+   int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
+   System.out.println("Total Emp Wage : " + totalEmpWage);
+   return totalEmpWage;
    }
+
+	public static void main(String[] args) {
+		computeEmpWage();
+	}
+
 }
