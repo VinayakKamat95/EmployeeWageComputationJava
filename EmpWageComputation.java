@@ -19,12 +19,12 @@ public class EmpWageComputation{
 	case IS_FULL_TIME:
 	   empHrs = 8;
 	   break;
-	case IS_PART_TIME:
+	case IS_PART_TIME:	   
 	   empHrs = 4;
 	   break;
 	default:
 	   empHrs = 0;
-	   break;
+           break;
    }
    totalEmpHrs += empHrs;
    System.out.println("Days#: " + totalWorkingDays + " Emp Hr: " + empHrs);
@@ -37,6 +37,7 @@ public class EmpWageComputation{
    public static void main(String[] args) {	   
       computeEmpWage("Dmart", 20, 20, 50);
       computeEmpWage("Reliance", 10, 4, 20);
+   
    }
 	
 }
